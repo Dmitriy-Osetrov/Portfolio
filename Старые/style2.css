@@ -1,0 +1,729 @@
+/* СБРОС БАЗОВЫХ СТИЛЕЙ И ОСНОВА */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.7;
+    color: #3a2c54; /* Тёмно-фиолетовый вместо чёрного */
+    background-color: #f9f7ff; /* Очень светлый лавандовый фон */
+    padding-bottom: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239681c6' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); /* Тонкая лавандовая текстура */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* ШАПКА - теперь как обложка концепт-бука */
+.main-header {
+    background: linear-gradient(135deg, #7b6cb3 0%, #5d4a9a 100%); /* Лавандовый градиент */
+    color: white;
+    padding: 5rem 0 3.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: none;
+}
+
+.main-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-30px, -30px) rotate(360deg); }
+}
+
+.logo {
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.tagline {
+    font-size: 1.4rem;
+    font-weight: 300;
+    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+}
+
+/* НАВИГАЦИЯ - стилизованные теги */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* БЛОК "О СЕБЕ" - как мастерская */
+.intro {
+    text-align: center;
+    padding: 4rem 3rem;
+    margin: 4rem auto 6rem;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(123, 108, 179, 0.12);
+    max-width: 900px;
+    border: 1px solid #e9e1ff;
+    position: relative;
+}
+
+.intro::before {
+    content: "✻";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f9f7ff;
+    color: #9d86d4;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    border: 2px dashed #d5c8ff;
+}
+
+.intro h2 {
+    font-size: 2.4rem;
+    color: #5d4a9a;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.intro p {
+    font-size: 1.25rem;
+    color: #665a7f;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 2.2rem;
+    background: linear-gradient(135deg, #9d86d4 0%, #7b6cb3 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(157, 134, 212, 0.3);
+    border: none;
+}
+
+.contact-links a:hover {
+    background: linear-gradient(135deg, #8a72c9 0%, #6a5a9e 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(157, 134, 212, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.contact-links i {
+    font-size: 1.3rem;
+}
+
+/* СТИЛИ ДЛЯ ПРОЕКТОВ - как страницы концепт-бука */
+.project {
+    margin-bottom: 7rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+.project-title {
+    font-size: 2.8rem;
+    color: #5d4a9a;
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+.project-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #9d86d4, #d5c8ff);
+    border-radius: 2px;
+}
+
+.highlight {
+    color: #7b6cb3;
+    font-weight: 800;
+    position: relative;
+}
+
+.project-subtitle {
+    font-size: 1.4rem;
+    color: #7b6cb3;
+    font-style: italic;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.project-subtitle::before {
+    content: "“";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 4rem;
+    color: #d5c8ff;
+    font-family: serif;
+    line-height: 1;
+}
+
+/* СЕТКА КОНЦЕПТОВ - тематические фигуры */
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+.concept-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(123, 108, 179, 0.1);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0ebff;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.concept-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, #9d86d4, #d5c8ff, #9d86d4);
+}
+
+.concept-card:hover {
+    transform: translateY(-15px) rotateX(5deg);
+    box-shadow: 0 25px 50px rgba(123, 108, 179, 0.2);
+    border-color: #d5c8ff;
+}
+
+.concept-card:nth-child(1):hover { background: linear-gradient(135deg, #f8f5ff, #ffffff); }
+.concept-card:nth-child(2):hover { background: linear-gradient(135deg, #f5f2ff, #ffffff); }
+.concept-card:nth-child(3):hover { background: linear-gradient(135deg, #f2eeff, #ffffff); }
+.concept-card:nth-child(4):hover { background: linear-gradient(135deg, #efeaff, #ffffff); }
+
+.card-icon {
+    font-size: 3.2rem;
+    color: #7b6cb3;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.concept-card:hover .card-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Тематические иконки для каждого типа карточки */
+.concept-card:nth-child(1) .card-icon::before { content: "⚔️"; } /* Конфликт */
+.concept-card:nth-child(2) .card-icon::before { content: "🎨"; } /* Цвет/Материал */
+.concept-card:nth-child(3) .card-icon::before { content: "✂️"; } /* Силуэт/Детали */
+.concept-card:nth-child(4) .card-icon::before { content: "📖"; } /* Нарратив */
+
+.concept-card h3 {
+    font-size: 1.7rem;
+    color: #5d4a9a;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.concept-card h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #d5c8ff;
+    border-radius: 1px;
+}
+
+.concept-card p {
+    color: #665a7f;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.concept-card strong {
+    color: #5d4a9a;
+    font-weight: 700;
+}
+
+/* ГАЛЕРЕЯ - как выставочная стена */
+.gallery {
+    background: linear-gradient(135deg, #ffffff 0%, #faf8ff 100%);
+    padding: 3rem;
+    border-radius: 24px;
+    margin-top: 3rem;
+    border: 1px solid #f0ebff;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d5c8ff, transparent);
+}
+
+.gallery-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #5d4a9a;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 2rem;
+}
+
+.gallery-title::before, .gallery-title::after {
+    content: "◆";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d5c8ff;
+    font-size: 1.2rem;
+}
+
+.gallery-title::before { left: 0; }
+.gallery-title::after { right: 0; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    background: linear-gradient(135deg, #f5f2ff, #ffffff);
+    border-radius: 18px;
+    padding: 2.2rem;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    border: 2px dashed #e0d6ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(157, 134, 212, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+    animation: float 30s linear infinite;
+}
+
+.gallery-item:hover {
+    background: linear-gradient(135deg, #f0ebff, #ffffff);
+    border-color: #9d86d4;
+    border-style: solid;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(123, 108, 179, 0.15);
+}
+
+.image-placeholder {
+    font-weight: 700;
+    color: #7b6cb3;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 1px solid #e9e1ff;
+}
+
+.gallery-item p {
+    color: #7b6cb3;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+}
+
+/* ПОДВАЛ - как штамп в паспорте */
+.main-footer {
+    text-align: center;
+    margin-top: 8rem;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #5d4a9a 0%, #4a3a7b 100%);
+    color: #e0d6ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #9d86d4, #d5c8ff, #9d86d4);
+}
+
+.main-footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+.main-footer p {
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.main-footer p:first-child {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .main-nav {
+        gap: 0.8rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .intro {
+        padding: 2.5rem 1.5rem;
+        margin: 3rem auto 4rem;
+    }
+
+    .intro h2 {
+        font-size: 1.9rem;
+    }
+
+    .project-title {
+        font-size: 2.2rem;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .concept-card {
+        min-height: 280px;
+        padding: 2rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .contact-links a {
+        width: 90%;
+        justify-content: center;
+    }
+
+    .gallery {
+        padding: 2rem 1.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        min-height: 220px;
+        padding: 1.8rem;
+    }
+}
+
+/* Стили для модальной галереи */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: #f9f7ff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid #d5c8ff;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.5rem;
+    color: #7b6cb3;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: white;
+    color: #5d4a9a;
+    transform: rotate(90deg);
+}
+
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(to right, #9d86d4, #5d4a9a);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.2s ease;
+    box-shadow: 0 2px 8px rgba(157, 134, 212, 0.5);
+}
+
+
+
+
+/* === ТЕМА 1: МИЛИТАРИ × САД (ПРИРОДНАЯ) === */
+.theme-nature {
+    /* Основной фон и атмосфера */
+    background-color: #f5f2e8 !important;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" opacity="0.03"><defs><pattern id="moss" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M20,20 a10,10 0 1,1 0.1,0" fill="%235a7d5a"/></pattern></defs><rect width="100%" height="100%" fill="url(%23moss)"/></svg>') !important;
+    color: #2d3b2d !important;
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.theme-nature .project-title,
+.theme-nature .concept-card h3 {
+    color: #3a5c3a !important;
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    letter-spacing: 0.5px;
+}
+
+.theme-nature .concept-card {
+    background: linear-gradient(135deg, #ffffff, #f0efe4) !important;
+    border: 1px solid #d4d0bc !important;
+    box-shadow: 0 15px 35px rgba(90, 125, 90, 0.12) !important;
+}
+
+.theme-nature .concept-card::before {
+    background: linear-gradient(to right, #8a9b8a, #b8c9b8, #8a9b8a) !important;
+}
+
+.theme-nature .gallery {
+    background: linear-gradient(135deg, #f0efe4, #ffffff) !important;
+    border: 1px dashed #b8c9b8 !important;
+}
+
+.theme-nature .gallery-item {
+    background: linear-gradient(135deg, #e8e6d9, #ffffff) !important;
+    border: 1px solid #d4d0bc !important;
+}
+
+.theme-nature .highlight {
+    color: #5a7d5a !important;
+}
+
+/* Специальные иконки для природы */
+.theme-nature .concept-card:nth-child(1) .card-icon::before { content: "🍂"; }
+.theme-nature .concept-card:nth-child(2) .card-icon::before { content: "🧵"; }
+.theme-nature .concept-card:nth-child(3) .card-icon::before { content: "👘"; }
+.theme-nature .concept-card:nth-child(4) .card-icon::before { content: "📜"; }
+
+/* === ТЕМА 2: КИБЕРПАНК × БРУТАЛИЗМ (УРБАНИСТИЧЕСКАЯ) === */
+.theme-urban {
+    /* Основной фон и атмосфера */
+    background-color: #2a2a2a !important;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" opacity="0.05"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20,0 L0,0 L0,20" fill="none" stroke="%23666" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>') !important;
+    color: #cccccc !important;
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.theme-urban .project-title,
+.theme-urban .concept-card h3 {
+    color: #00bcd4 !important; /* Неоновый циан */
+    font-family: 'Courier New', 'Roboto Mono', monospace !important;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+}
+
+.theme-urban .concept-card {
+    background: linear-gradient(135deg, #3a3a3a, #2a2a2a) !important;
+    border: 1px solid #555 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.theme-urban .concept-card::before {
+    background: linear-gradient(to right, #00bcd4, #ff4081, #00bcd4) !important;
+}
+
+.theme-urban .gallery {
+    background: linear-gradient(135deg, #333, #2a2a2a) !important;
+    border: 1px solid #444 !important;
+}
+
+.theme-urban .gallery-item {
+    background: linear-gradient(135deg, #3a3a3a, #2a2a2a) !important;
+    border: 1px solid #555 !important;
+}
+
+.theme-urban .highlight {
+    color: #ff4081 !important; /* Неоновый розовый */
+    text-shadow: 0 0 6px rgba(255, 64, 129, 0.5);
+}
+
+/* Специальные иконки для урбана */
+.theme-urban .concept-card:nth-child(1) .card-icon::before { content: "⚡"; }
+.theme-urban .concept-card:nth-child(2) .card-icon::before { content: "🔧"; }
+.theme-urban .concept-card:nth-child(3) .card-icon::before { content: "🧱"; }
+.theme-urban .concept-card:nth-child(4) .card-icon::before { content: "📡"; }
+
+/* Общие элементы, которые должны оставаться контрастными */
+.theme-urban .intro,
+.theme-urban .main-footer,
+.theme-urban .main-header {
+    /* Можно оставить твою оригинальную лавандовую гамму для контраста,
+       или адаптировать под тему. Пока оставим как есть для резкого перехода. */
+}
